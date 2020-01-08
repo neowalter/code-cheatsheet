@@ -17,7 +17,7 @@ plt.plot(svm_prediction)
 #figure commentary
 plt.legend(['price','predic price'], loc='lower right')
 
-#figure axis range
+#figure axes range
 plt.axis([0,19,6500,9000])
 
 #figure axes label
