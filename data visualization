@@ -1,0 +1,33 @@
+# python data visualization
+# using pandas numpy matplotlib
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+
+#figure size
+plt.figure(figsize=(16,8))
+
+#figure title
+plt.title('Price prediction comparassion')
+
+#figure data
+plt.plot(comprice)
+plt.plot(svm_prediction)
+
+#figure commentary
+plt.legend(['price','predic price'], loc='lower right')
+
+#figure axis range
+plt.axis([0,19,6500,9000])
+
+#figure axes label
+plt.xlabel('Days',fontsize=18)
+plt.ylabel('Price USD',fontsize=18)
+
+#axis interval
+plt.xticks(np.arange(0, 20, 1))
+
+#axis grid
+plt.grid(True)
+
+plt.show()
