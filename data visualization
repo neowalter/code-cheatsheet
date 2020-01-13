@@ -4,6 +4,83 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 
+#input file data
+file_data = pd.read_csv('test.csv')
+file_data = pd.read_excel('test.xlsx')
+file_data = pd.read_csv('test.txt',delimiter = '\t')
+
+#read json file
+import json
+data []
+with open(f'./test/test1.json') as f:
+    for line in f:
+        test2 = json.loads(line)
+        tests.append(test2['test'],test2['test3'])
+
+
+#show part of the data
+print(df['test1','test2','test3'][0:5])
+
+#row
+print(df.iloc[1:4])
+
+#specific object
+print(df.iloc[1,2])
+df.loc[df['test'] == ''test1'']
+
+#overview
+df.describe()
+
+#sort
+df.sort_values(['test'], ascending=True)
+df.sort_values(['test1', 'test'], ascending=[1,0])
+
+#add
+df['test'] = df['test1'] + df['test2'] + df['test3']
+df['test'] = df.iloc[:, 2:5].sum(axis=1)
+
+#delete
+df = df.drop(columns=['test'])
+
+#reshape
+cols = list(df.columns)
+df = df[cols[0:4] + [cols[-1]]+cols[4:8]]
+
+#filter
+new_df = df.loc[(df['test1'] == '1') & (df['test2'] == '2') | (df['test3'] > 3)
+new_df.reset_index(drop=True, inplace=True)
+new_df.to_csv('test.csv')
+
+#~ use for not show the data
+df.loc[~df['test1'].str.contains('test')]
+
+#flag for captical character
+import re
+df.loc[df['test1'].str.contains('test|1', flag=re.I, regex = True)]
+#show every row which contain 't' in [test] column   
+# ^ for only appear in the first character 
+df.loc[df['test1'].str.contains('^t[a-z]*', flag=re.I, regex = True)]
+
+#alter
+df.loc[df['test'] > 500, ['test1','test2']] = ['1', '2']
+
+#aggregate
+df.groupby(['test1', 'test2']).mean().sort_values('test3', ascending=False)
+#same group amount
+df['count'] = 1
+df.groupby(['test1', 'test2']).count()['count']
+
+#seperate to chunk
+new_df = pd.DataFrame(columns=df.columns)
+for df in pd.read_csv('test.csv', chunksize=5):
+    results = df.groupby(['test1']).count()
+    new_df = pd.concat([new_df, results])
+
+#save
+df.to_csv('test.csv', index=False)
+df.to_excel('test.xlsx', index=False)
+df.to_csv('test.txt', index=False, sep='\t')
+
 #figure size
 plt.figure(figsize=(16,8))
 
@@ -30,4 +107,9 @@ plt.xticks(np.arange(0, 20, 1))
 #axis grid
 plt.grid(True)
 
+#show figure
 plt.show()
+
+
+
+
