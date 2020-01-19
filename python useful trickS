@@ -1,0 +1,3 @@
+# output
+output = f'TEST,{TEST1} {TEST2}'
+output = 'TEST, {0}, {1}'.format(test1, test2)
