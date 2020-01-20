@@ -25,3 +25,13 @@ print('test')
 #change row
 def TEST(1,2,3,4,5,6, \
          7,8,9,0)
+
+
+#check interact error
+response.raise_for_status()
+
+#change dictionary 
+TESt = {'test0':'test1','test1':'test2'}
+TEST{}
+TEST['test'] = TESt
+staff.json = json.dumps(TEST)
