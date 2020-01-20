@@ -17,6 +17,10 @@ def printTEST(task_name)
 printTEST("test1")
 printTEST("test2")
 
+#reuse
+from printTEST import *
+print('test')
+
 
 #change row
 def TEST(1,2,3,4,5,6, \
