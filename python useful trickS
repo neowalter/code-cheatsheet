@@ -1,3 +1,11 @@
 # output
 output = f'TEST,{TEST1} {TEST2}'
 output = 'TEST, {0}, {1}'.format(test1, test2)
+
+#condition
+if test in ('test1','test2',test3'):
+    Test = 
+elif test == 'test4':
+    Test =
+else:
+    Test =
