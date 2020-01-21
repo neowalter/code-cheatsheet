@@ -1,3 +1,17 @@
+# read file
+f = open('test.txt','r')
+TEST = open('TEST.txt','w')
+count = 0
+for line in f:
+    line_split = line.split()
+    if line_split[2] == 'test':
+        TEST.write(line)
+    print(str(count)+ line)
+    count = count +   1
+f.close()
+TEST.close()
+
+
 import os
 import pandas as pd
 
