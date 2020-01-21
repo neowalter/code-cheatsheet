@@ -53,4 +53,33 @@ impot os
 load_dotenv()
 keys = os.getenv('api_key')
 
+#interact with command
+import subprocess
+#run python script TEST
+subprocess.chess_call(['python3','TEST.py'])
 
+#organize files in system folder
+import os
+from pathlib import Path
+DIRECTORIES = {
+    "TEST1": ['.pdf','txt'],
+    "TEST2": ['.jpg','.jpeg','.png']
+}
+def pickdir(value):
+    for category, suffixes in DIRECTORIES.items():
+        for suffix in suffixes:
+            if suffix == value:
+                return category
+    return 'unsupported file'
+def orgdir():
+    for items in os.scandir():
+        if item.is_dir():
+            continue
+        filePath = Path(item)
+        filetype = filePath.suffix.lower()
+        directory = pickdir(filetype)
+        directoryPath = Path(directory)
+        if directoryPath.is_dir() != True:
+            directoryPath.mkdir()
+        filePath.rename(directoryPath.joinpath(filePath))
+orgdir()
