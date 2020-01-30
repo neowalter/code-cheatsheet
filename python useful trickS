@@ -83,3 +83,57 @@ def orgdir():
             directoryPath.mkdir()
         filePath.rename(directoryPath.joinpath(filePath))
 orgdir()
+
+
+#interact with website
+from selenium import webdriver
+driver = webdriver.chorme()
+driver.get('website URL')
+messageField = driver.find_element_by_xpath('//*[@id="test1"]') #copy from inspect mode copy---copy XPATH
+messageField.send_keys('test')
+showMessageButton = driver.find_element_by_xpath('//*[@id="test2"]')
+showMessageButton.click()
+
+
+#advcaned interact
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+driver = webdriver.chorme()
+driver.maximize_window()
+driver.get('website URL')
+source = driver.find_element_by_xpath('//*[@id="test1"]')
+TEST = driver.find_element_by_xpath('//*[@id="test2"]')
+actions = ActionChains(driver)
+action.drag_and_drop(source, TEST).perform()
+
+
+#wait founction
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+url = 'website url'
+driver = webdriver.Chrome()
+driver.get(url)
+wait = WebDriverWait(driver, 10)
+launchbutton = wait.until(EC.element_to_be_clickable((By.XPATH,'test buttom's xpath'))
+launchbutton.click()
+
+
+#interact with API
+import requests
+import json
+baseUrl = 'api url'
+parameters = {'name': 'number'} #these can be find along with the api params vaires from different website
+response = requests.get(baseUrl, params=parameters)
+print(response.url)
+content = response.content
+info = json.loads(content)
+print(type(info))
+print(info)
+item = info['test'] #items in the responses from api 
+itemInfo = item[0]
+title = itemInfo['test2']
+print(title)
+
+
