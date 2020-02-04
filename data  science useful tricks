@@ -1,0 +1,2 @@
+import data from website to excel spreadsheet
+=IMPORTHTML("https://test.com/test""table",1)
